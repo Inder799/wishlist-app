@@ -1,0 +1,195 @@
+/* =======================
+   CSS VARIABLES
+======================= */
+
+:root {
+  --bg: #f3f4f6;
+  --card-bg: #ffffff;
+  --text: #111827;
+  --muted-text: #6b7280;
+  --todo-bg: #f9fafb;
+  --border: #e5e7eb;
+  --primary: #6366f1;
+  --primary-hover: #4f46e5;
+  --danger: #ef4444;
+}
+
+/* Dark Mode Overrides */
+body.dark {
+  --bg: radial-gradient(circle at top, #1e293b, #020617);
+  --card-bg: #1e293b;
+  --text: #f8fafc;
+  --muted-text: #94a3b8;
+  --todo-bg: #334155;
+  --border: #475569;
+}
+
+/* =======================
+   RESET
+======================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  transition: background 0.3s ease;
+}
+
+/* =======================
+   MAIN CARD
+======================= */
+
+.main {
+  width: 100%;
+  max-width: 500px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  transition: background 0.3s ease;
+}
+
+/* =======================
+   HEADER
+======================= */
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.heading-1 {
+  font-size: 2rem;
+  color: var(--text);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Theme button */
+.theme-btn {
+  background: transparent;
+  border: none;
+  font-size: 1.6rem;
+  cursor: pointer;
+  color: var(--text);
+  padding: 0.25rem;
+  line-height: 1;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.theme-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.theme-btn:active {
+  transform: scale(0.95);
+}
+
+/* =======================
+   FORM
+======================= */
+
+.todo-form {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.input::placeholder {
+  color: var(--muted-text);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--primary);
+}
+
+/* =======================
+   BUTTONS
+======================= */
+
+.button {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background: var(--primary-hover);
+}
+
+/* =======================
+   TODOS
+======================= */
+
+.todos-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  background: var(--todo-bg);
+  border: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+}
+
+.todo-item label {
+  flex: 1;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.checked-todo {
+  text-decoration: line-through;
+  color: var(--muted-text);
+}
+
+/* Delete button */
+.todo-item button {
+  background: var(--danger);
+  color: white;
+  border: none;
+  padding: 0.35rem 0.6rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.todo-item {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.todo-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.12);
+}
